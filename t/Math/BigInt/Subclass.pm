@@ -1,90 +1,70 @@
 # -*- mode: perl; -*-
 
-package Math::BigInt::Subclass;
+# test subclassing Math::BigInt
 
-require 5.005_02;
+package Math::BigInt::Subclass;
 
 use strict;
 use warnings;
 
-use Exporter;
-use Math::BigInt 1.64;
+use Math::BigInt;
 
-# $lib is for the "lib => " test
-our $lib;
-our ($accuracy, $precision, $round_mode, $div_scale);
+our @ISA = qw(Math::BigInt);
 
-our @ISA = qw(Math::BigInt Exporter);
-our @EXPORT_OK = qw(bgcd objectify);
+our $VERSION = "0.08";
 
-our $VERSION = "0.06";
+use overload;                   # inherit overload
 
-use overload;                   # inherit overload from BigInt
+# Global variables. The values can be specified explicitly or obtained from the
+# superclass.
 
-# Globals
-$accuracy = $precision = undef;
-$round_mode = 'even';
-$div_scale = 40;
-$lib = '';
+our $accuracy   = undef;        # or Math::BigInt::Subclass -> accuracy();
+our $precision  = undef;        # or Math::BigInt::Subclass -> precision();
+our $round_mode = "even";       # or Math::BigInt::Subclass -> round_mode();
+our $div_scale  = 40;           # or Math::BigInt::Subclass -> div_scale();
+
+BEGIN {
+    *objectify = \&Math::BigInt::objectify;
+}
+
+# We override new().
 
 sub new {
     my $proto = shift;
     my $class = ref($proto) || $proto;
 
-    my $value = shift;
-    my $a = $accuracy;  $a = $_[0] if defined $_[0];
-    my $p = $precision; $p = $_[1] if defined $_[1];
-    my $self = Math::BigInt->new($value, $a, $p, $round_mode);
+    my $self = $class -> SUPER::new(@_);
+    $self->{'_custom'} = 1;     # attribute specific to this subclass
     bless $self, $class;
-    $self->{'_custom'} = 1;     # make sure this never goes away
-    return $self;
 }
 
-sub bgcd {
-    Math::BigInt::bgcd(@_);
-}
-
-sub blcm {
-    Math::BigInt::blcm(@_);
-}
-
-sub as_int {
-    Math::BigInt->new($_[0]);
-}
-
-BEGIN {
-    *objectify = \&Math::BigInt::objectify;
-
-    # these are called by AUTOLOAD from BigFloat, so we need at least these.
-    # We cheat, of course..
-    *bneg = \&Math::BigInt::bneg;
-    *babs = \&Math::BigInt::babs;
-    *bnan = \&Math::BigInt::bnan;
-    *binf = \&Math::BigInt::binf;
-    *bzero = \&Math::BigInt::bzero;
-    *bone = \&Math::BigInt::bone;
-}
+# We override import(). This is just for a sample for demonstration.
 
 sub import {
-    my $self = shift;
+    my $self  = shift;
+    my $class = ref($self) || $self;
 
-    my @a;
-    my $t = 0;
-    foreach (@_) {
-        # remove the "lib => foo" parameters and store it
-        if ($t == 1) {
-            $lib = $_;
-            $t = 0;
+    my @a;                      # unrecognized arguments
+    while (@_) {
+        my $param = shift;
+
+        # The parameter "this" takes an option.
+
+        if ($param eq 'something') {
+            $self -> {$param} = shift;
             next;
         }
-        if ($_ eq 'lib') {
-            $t = 1;
-            next;
-        }
+
         push @a, $_;
     }
-    $self->SUPER::import(@a);             # need it for subclasses
-    $self->export_to_level(1, $self, @a); # need this ?
+
+    $self -> SUPER::import(@a);         # need it for subclasses
 }
+
+# Any other methods to override can go here:
+
+# sub method {
+#     ...
+# }
 
 1;

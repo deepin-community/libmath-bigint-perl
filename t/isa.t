@@ -4,10 +4,11 @@ use strict;
 use warnings;
 use lib 't';
 
-use Test::More tests => 11;
+use Test::More tests => 13;
 
 use Math::BigInt::Subclass;
 use Math::BigFloat::Subclass;
+use Math::BigFloat::BareSubclass;
 use Math::BigInt;
 use Math::BigFloat;
 
@@ -20,7 +21,7 @@ isa_ok($class->new(123), 'Math::BigInt');
 # ditto for plain Math::BigInt
 isa_ok(Math::BigInt->new(123), 'Math::BigInt');
 
-# But Math::BigFloats aren't
+# But Math::BigFloat objects aren't
 ok(!Math::BigFloat->new(123)->isa('Math::BigInt'),
    "A Math::BigFloat isn't a Math::BigInt");
 
@@ -48,4 +49,11 @@ ok(!Math::BigFloat->new(123)->isa('Math::BigInt'),
     my $x = Math::BigFloat->new(Math::BigInt::Subclass->new(123));
     is(ref($x), 'Math::BigFloat', 'ref($x) = "Math::BigFloat"');
     isa_ok($x, 'Math::BigFloat');
+}
+
+{
+    my $x = Math::BigFloat->new(9999.99);
+    my $y = Math::BigFloat::BareSubclass->new(9999.99);
+    ok($x == $y, "Math::BigFloat parent == subclass");
+    ok($y == $x, "Math::BigFloat subclass == parent");
 }

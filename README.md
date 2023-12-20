@@ -1,7 +1,7 @@
 # Math-BigInt
 
-Math::BigInt and Math::BigFloat are modules for arbitrary precision
-arithmetic.
+Math::BigInt, Math::BigFloat, and Math::BigRat are modules for arbitrary
+precision integers, floating point numbers, and rational numbers.
 
 # INSTALLATION
 
@@ -16,14 +16,17 @@ commands:
 # SUPPORT AND DOCUMENTATION
 
 After installing, you can find documentation for these modules with the
-perldoc command.
+perldoc command:
 
     perldoc Math::BigInt
     perldoc Math::BigFloat
+    perldoc Math::BigRat
 
-You can find documentation for this module with the perldoc command.
+You can find documentation for the backend libraries with the following
+commands:
 
-    perldoc Math::BigInt
+    perldoc Math::BigInt::Lib
+    perldoc Math::BigInt::Calc
 
 You can also look for information at:
 
@@ -42,23 +45,6 @@ You can also look for information at:
 - CPAN Testers Matrix
 
     [http://matrix.cpantesters.org/?dist=Math-BigInt](http://matrix.cpantesters.org/?dist=Math-BigInt)
-
-- CPAN Ratings
-
-    [https://cpanratings.perl.org/dist/Math-BigInt](https://cpanratings.perl.org/dist/Math-BigInt)
-
-- The Bignum mailing list
-    - Post to mailing list
-
-        `bignum at lists.scsys.co.uk`
-
-    - View mailing list
-
-        [http://lists.scsys.co.uk/pipermail/bignum/](http://lists.scsys.co.uk/pipermail/bignum/)
-
-    - Subscribe/Unsubscribe
-
-        [http://lists.scsys.co.uk/cgi-bin/mailman/listinfo/bignum](http://lists.scsys.co.uk/cgi-bin/mailman/listinfo/bignum)
 
 # COPYRIGHT
 

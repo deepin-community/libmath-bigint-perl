@@ -4,7 +4,8 @@ use 5.006001;
 use strict;
 use warnings;
 
-our $VERSION = '1.999827';
+our $VERSION = '2.002001';
+$VERSION =~ tr/_//d;
 
 use Carp;
 
@@ -1770,7 +1771,7 @@ sub _modinv {
 
     # modulo zero
     if ($class -> _is_zero($y)) {
-        return (undef, undef);
+        return;
     }
 
     # modulo one
@@ -1800,7 +1801,7 @@ sub _modinv {
     }
 
     # if the gcd is not 1, there exists no modular multiplicative inverse
-    return (undef, undef) unless $class -> _is_one($a);
+    return unless $class -> _is_one($a);
 
     ($v, $sign == 1 ? '+' : '-');
 }
@@ -2013,8 +2014,8 @@ Math::BigInt::Lib - virtual parent class for Math::BigInt libraries
 
     package Math::BigInt::MyBackend;
 
-    use Math::BigInt::lib;
-    our @ISA = qw< Math::BigInt::lib >;
+    use Math::BigInt::Lib;
+    our @ISA = qw< Math::BigInt::Lib >;
 
     sub _new { ... }
     sub _str { ... }
@@ -2584,17 +2585,13 @@ You can also look for information at:
 
 =over 4
 
+=item * GitHub Source Repository
+
+L<https://github.com/pjacklam/p5-Math-BigInt>
+
 =item * RT: CPAN's request tracker
 
 L<https://rt.cpan.org/Public/Dist/Display.html?Name=Math-BigInt>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/Math-BigInt>
-
-=item * CPAN Ratings
-
-L<https://cpanratings.perl.org/dist/Math-BigInt>
 
 =item * MetaCPAN
 
@@ -2603,24 +2600,6 @@ L<https://metacpan.org/release/Math-BigInt>
 =item * CPAN Testers Matrix
 
 L<http://matrix.cpantesters.org/?dist=Math-BigInt>
-
-=item * The Bignum mailing list
-
-=over 4
-
-=item * Post to mailing list
-
-C<bignum at lists.scsys.co.uk>
-
-=item * View mailing list
-
-L<http://lists.scsys.co.uk/pipermail/bignum/>
-
-=item * Subscribe/Unsubscribe
-
-L<http://lists.scsys.co.uk/cgi-bin/mailman/listinfo/bignum>
-
-=back
 
 =back
 
