@@ -7,7 +7,7 @@ General:
  * run config() and die_on_nan() tests under Subclass.pm
 
 Math::BigFloat:
- * finish upgrading and downgrading
+ * finish downgrading (and upgrading?)
  * ! bround()/bfround(): some bugs may lurk in there
  * accuracy() & precision() maybe not finished (bnorm() in every op, testcases)
  * do not reduce numbers in new(), rather do it in anything that outputs it
@@ -20,6 +20,9 @@ Math::BigFloat:
  * finish broot() by using different algorithm
 
 Math::BigInt:
+ * finish upgrading (and downgrading?)
+ * Better testing of upgrading, e.g., Math::BigInt->bmod($x,$y) where $x and $y
+   are Math::BigFloat objects.
  * Finite non-integers should be handled consistently. The may appear as input
    and as a result of a computation. Alternatives are: round, truncate, die,
    and return NaN.
@@ -48,6 +51,14 @@ Math::BigInt:
 
 Given the fact that we are be able to plug-in a much faster core-lib, the
 following are pretty much ultra-low-priority:
+
+Math::BigRat:
+ * Make blog() handle exact cases correctly. E.g., (8/27) ** (2/3) = 4/9, so
+   Math::BigRat -> new("4/9") -> blog("8/27") should return 2/3.
+ * Rounding needs a new definiton: rounding to nearest fraction (see Knuth and
+   fixed-slash fractions)
+ * bmod(), bmodpow(), bmodinv() not fully/properly implemented yet.
+ * BigRat does not handle modify() yet or in a very incomplete manner.
 
 Math::BigInt::Calc:
  * look at div() for more speed (I have the hunch that the general _div()

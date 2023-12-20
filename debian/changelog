@@ -1,3 +1,121 @@
+libmath-bigint-perl (2.002001-1) unstable; urgency=medium
+
+  * Import upstream version 2.002001.
+
+ -- gregor herrmann <gregoa@debian.org>  Mon, 11 Dec 2023 21:45:22 +0100
+
+libmath-bigint-perl (2.002000-1) unstable; urgency=medium
+
+  * Import upstream version 2.002000.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 02 Dec 2023 15:10:42 +0100
+
+libmath-bigint-perl (2.001001-1) unstable; urgency=medium
+
+  * Import upstream version 2.001001.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 25 Nov 2023 17:48:51 +0100
+
+libmath-bigint-perl (2.001000-1) unstable; urgency=medium
+
+  * Import upstream version 2.001000.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 17 Nov 2023 18:59:18 +0100
+
+libmath-bigint-perl (2.000000-1) unstable; urgency=medium
+
+  * Import upstream version 2.000000.
+    Merge the Math-BigRat distribution into the Math-BigInt distribution.
+  * Update short and long description to mention Math::BigRat.
+  * debian/watch: drop uversionmangle.
+    This distribution didn't have a 5-digit minor version in a long time.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 10 Nov 2023 00:24:45 +0100
+
+libmath-bigint-perl (1.999842-1) unstable; urgency=medium
+
+  * Import upstream version 1.999842-1.
+
+ -- Roland Rosenfeld <roland@debian.org>  Fri, 29 Sep 2023 12:58:01 +0200
+
+libmath-bigint-perl (1.999840-1) unstable; urgency=medium
+
+  * Import upstream version 1.999840.
+  * Drop 0001-Fix-Math-BigFloat-subclass-numeric-comparison.patch,
+    merged upstream.
+  * Update years of upstream copyright.
+
+ -- gregor herrmann <gregoa@debian.org>  Wed, 20 Sep 2023 22:00:04 +0200
+
+libmath-bigint-perl (1.999839-2) unstable; urgency=medium
+
+  * Add patch to fix Math::BigFloat subclass numeric comparison.
+    Written by Niko Tyni, and merged upstream. (Closes: #1043234)
+  * Update years of packaging copyright.
+  * Declare compliance with Debian Policy 4.6.2.
+
+ -- gregor herrmann <gregoa@debian.org>  Mon, 14 Aug 2023 01:56:28 +0200
+
+libmath-bigint-perl (1.999839-1) unstable; urgency=medium
+
+  * New upstream version 1.999839.
+
+ -- Roland Rosenfeld <roland@debian.org>  Fri, 21 Jul 2023 12:48:01 +0200
+
+libmath-bigint-perl (1.999838-1) unstable; urgency=medium
+
+  * New upstream version 1.999838, which fixes infinite recursion in
+    bitwise operations (Closes: #1012704, #1017042).
+  * Update d/upstream/metadata pointing bugs to rt.cpan.org.
+  * Add myself to uploaders.
+  * Add debian/salsa-ci.yml.
+
+ -- Roland Rosenfeld <roland@debian.org>  Fri, 31 Mar 2023 17:13:30 +0200
+
+libmath-bigint-perl (1.999837-1) unstable; urgency=medium
+
+  * Import upstream version 1.999837.
+
+ -- gregor herrmann <gregoa@debian.org>  Wed, 06 Jul 2022 18:03:14 +0200
+
+libmath-bigint-perl (1.999836-1) unstable; urgency=medium
+
+  * Import upstream version 1.999836.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 24 Jun 2022 23:38:49 +0200
+
+libmath-bigint-perl (1.999835-1) unstable; urgency=medium
+
+  * Import upstream version 1.999835.
+
+ -- gregor herrmann <gregoa@debian.org>  Thu, 26 May 2022 16:50:05 +0200
+
+libmath-bigint-perl (1.999831-1) unstable; urgency=medium
+
+  * Import upstream version 1.999831.
+  * Declare compliance with Debian Policy 4.6.1.
+
+ -- gregor herrmann <gregoa@debian.org>  Tue, 17 May 2022 22:44:48 +0200
+
+libmath-bigint-perl (1.999830-1) unstable; urgency=medium
+
+  * Import upstream version 1.999830.
+  * Update years of upstream and packaging copyright.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 15 Apr 2022 16:23:40 +0200
+
+libmath-bigint-perl (1.999829-1) unstable; urgency=medium
+
+  * Import upstream version 1.999829.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 31 Dec 2021 19:27:34 +0100
+
+libmath-bigint-perl (1.999828-1) unstable; urgency=medium
+
+  * Import upstream version 1.999828.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 19 Dec 2021 13:10:07 +0100
+
 libmath-bigint-perl (1.999827-1) unstable; urgency=medium
 
   * Import upstream version 1.999827.

@@ -44,7 +44,8 @@ while (<DATA>) {
     } elsif ($f eq "binf") {
         $try .= qq| \$x->binf("$args[1]");|;
     } elsif ($f eq "bone") {
-        $try .= qq| \$x->bone("$args[1]");|;
+        $try .= length($args[1]) ? qq| \$x->bone("$args[1]");|
+                                 : qq| \$x->bone();|;
     } elsif ($f eq "bstr") {
         $try .= qq| \$x->accuracy($args[1]); \$x->precision($args[2]);|;
         $try .= ' $x->bstr();';
@@ -97,14 +98,14 @@ while (<DATA>) {
             if (defined $args[2]) {
                 $try .= qq| \$z = $CLASS->new("$args[2]");|;
             }
-            $try .= qq| $CLASS\::bgcd(\$x, \$y|;
+            $try .= qq| $CLASS->bgcd(\$x, \$y|;
             $try .= qq|, \$z| if defined $args[2];
             $try .= qq|);|;
         } elsif ($f eq "blcm") {
             if (defined $args[2]) {
                 $try .= qq| \$z = $CLASS->new("$args[2]");|;
             }
-            $try .= qq| $CLASS\::blcm(\$x, \$y|;
+            $try .= qq| $CLASS->blcm(\$x, \$y|;
             $try .= qq|, \$z| if defined $args[2];
             $try .= qq|);|;
         } elsif ($f eq "bcmp") {
@@ -465,17 +466,17 @@ $y = $CLASS->new("18.2");
 
 # 2 * (2 ** int(18.2));
 $x <<= $y;
-is($x->copy()->bfround(-9), "602248.763144685",
+is($x, 524288,
    qq|\$x = $CLASS->new("2"); \$y = $CLASS->new("18.2");| .
-   q| $x <<= $y; $x->copy()->bfround(-9);|);
+   q| $x <<= $y|);
 
-# 2 * (2 ** 18.2) / (2 ** 18.2) => 2
+# 2 * (2 ** int(18.2)) / (2 ** int(18.2)) => 2
 is($x >>= $y, 2,
    qq|\$x = $CLASS->new("2"); \$y = $CLASS->new("18.2");| .
-   q| $x <<= $y; $x->copy()->bfround(-9); $x >>= $y|);
+   q| $x <<= $y; $x >>= $y|);
 is($x, 2,
    qq|\$x = $CLASS->new("2"); \$y = $CLASS->new("18.2");| .
-   q| $x <<= $y; $x->copy()->bfround(-9); $x >>= $y; $x|);
+   q| $x <<= $y; $x >>= $y; $x|);
 
 __DATA__
 
@@ -524,8 +525,8 @@ NaN:10:NaN
 -inf:10:NaN
 1.2:10:0.3623577545
 2.4:12:-0.737393715541
-0:10:1
-0:20:1
+0:10:1.000000000
+0:20:1.0000000000000000000
 1:10:0.5403023059
 1:12:0.540302305868
 
@@ -867,7 +868,7 @@ abc:NaN
 0::1
 -2::1
 abc::1
-2:abc:1
+2::1
 
 &bsstr
 +inf:inf

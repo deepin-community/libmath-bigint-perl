@@ -20,26 +20,42 @@ eval "use Pod::Coverage $min_pc";
 plan skip_all => "Pod::Coverage $min_pc required for testing POD coverage"
   if $@;
 
-plan tests => 3;
+plan tests => 4;
 
 my $trustme;
 
 # Math::BigInt
 
 $trustme = {
-            trustme => [ 'fround',
-                         'objectify' ],
+            trustme => [
+                        'fround',
+                        'objectify',
+                       ],
            };
 pod_coverage_ok('Math::BigInt', $trustme, "Math::BigInt is covered");
 
 # Math::BigFloat
 
 $trustme = {
-            trustme => [ 'DEBUG',
-                         'isa' ],
+            trustme => [
+                        'DEBUG',
+                        'isa',
+                        'objectify'
+                       ],
             coverage_class => 'Pod::Coverage::CountParents',
            };
 pod_coverage_ok('Math::BigFloat', $trustme, "Math::BigFloat is covered");
+
+# Math::BigRat
+
+$trustme = {
+            trustme => [
+                        'isa',
+                        'objectify',
+                       ],
+            coverage_class => 'Pod::Coverage::CountParents',
+           };
+pod_coverage_ok('Math::BigRat', $trustme, "Math::BigRat is covered");
 
 # Math::BigInt::Lib
 

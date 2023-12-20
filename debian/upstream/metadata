@@ -1,6 +1,7 @@
 ---
 Archive: CPAN
-Bug-Database: https://github.com/pjacklam/p5-Math-BigInt/issues
-Bug-Submit: https://github.com/pjacklam/p5-Math-BigInt/issues/new
+Bug-Database: https://rt.cpan.org/Public/Dist/Display.html?Name=Math-BigInt
+Bug-Submit: mailto:bug-math-bigint@rt.cpan.org
+Changelog: https://metacpan.org/dist/Math-BigInt/changes
 Repository: https://github.com/pjacklam/p5-Math-BigInt.git
 Repository-Browse: https://github.com/pjacklam/p5-Math-BigInt
