@@ -118,12 +118,16 @@ xt/author/bblsft-mbi-mbf.t
 xt/author/bblsft-mbi-mbr.t
 xt/author/bbrsft-mbi-mbf.t
 xt/author/bbrsft-mbi-mbr.t
+xt/author/bclog10-mbi.t
+xt/author/bclog2-mbi.t
 xt/author/bcos-mbf.t
 xt/author/bcos-mbi-upg-mbf.t
 xt/author/bcos-mbi.t
 xt/author/bdec-mbf.t
 xt/author/bdec-mbi.t
 xt/author/bdigitsum-mbi.t
+xt/author/bdiv-mbi-mbf.t
+xt/author/bdiv-mbi-mbr.t
 xt/author/bdstr-mbf.t
 xt/author/bdstr-mbi.t
 xt/author/beq-mbf.t
@@ -135,6 +139,9 @@ xt/author/bfib-mbi.t
 xt/author/bfstr-mbf.t
 xt/author/bfstr-mbi.t
 xt/author/bfstr-mbr.t
+xt/author/bhyperop-mbi.t
+xt/author/bilog10-mbi.t
+xt/author/bilog2-mbi.t
 xt/author/binc-mbf.t
 xt/author/binc-mbi.t
 xt/author/binf-mbf.t
@@ -249,6 +256,8 @@ xt/author/lib-arithmetic-ternary-_modpow.dat
 xt/author/lib-arithmetic-ternary-_modpow.t
 xt/author/lib-arithmetic-ternary-_rsft.dat
 xt/author/lib-arithmetic-ternary-_rsft.t
+xt/author/lib-arithmetic-unary-_clog10.t
+xt/author/lib-arithmetic-unary-_clog2.t
 xt/author/lib-arithmetic-unary-_dec.dat
 xt/author/lib-arithmetic-unary-_dec.t
 xt/author/lib-arithmetic-unary-_dfac.dat
@@ -257,6 +266,8 @@ xt/author/lib-arithmetic-unary-_fac.dat
 xt/author/lib-arithmetic-unary-_fac.t
 xt/author/lib-arithmetic-unary-_fib.dat
 xt/author/lib-arithmetic-unary-_fib.t
+xt/author/lib-arithmetic-unary-_ilog10.t
+xt/author/lib-arithmetic-unary-_ilog2.t
 xt/author/lib-arithmetic-unary-_inc.dat
 xt/author/lib-arithmetic-unary-_inc.t
 xt/author/lib-arithmetic-unary-_lucas.dat
