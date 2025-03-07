@@ -1,3 +1,31 @@
+libmath-bigint-perl (2.003004-1) unstable; urgency=medium
+
+  * Import upstream version 2.003004.
+  * Update years of packaging copyright.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 26 Jan 2025 23:47:35 +0100
+
+libmath-bigint-perl (2.003003-1) unstable; urgency=medium
+
+  * Import upstream version 2.003003.
+  * Declare compliance with Debian Policy 4.7.0.
+
+ -- gregor herrmann <gregoa@debian.org>  Thu, 30 May 2024 18:37:43 +0200
+
+libmath-bigint-perl (2.003002-1) unstable; urgency=medium
+
+  * Import upstream version 2.003002.
+  * Update years of upstream copyright.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 21 Jan 2024 00:00:03 +0100
+
+libmath-bigint-perl (2.003001-1) unstable; urgency=medium
+
+  * Import upstream version 2.003001.
+  * Update years of packaging copyright.
+
+ -- gregor herrmann <gregoa@debian.org>  Mon, 01 Jan 2024 22:41:38 +0100
+
 libmath-bigint-perl (2.002001-1) unstable; urgency=medium
 
   * Import upstream version 2.002001.
